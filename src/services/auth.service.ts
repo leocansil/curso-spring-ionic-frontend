@@ -30,7 +30,7 @@ export class AuthService  {
             {},
             {
                 observe: 'response',
-                responseType: 'text'
+                responseType: 'text' 
             });
     }
 
