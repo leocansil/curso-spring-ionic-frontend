@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs/Rx';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>> {
-        console.log('passou pelo interceptor');
         return next.handle(req)
         .catch((error, caught) => {
             let errorObj = error;
