@@ -12,7 +12,7 @@ import { API_CONFIG } from '../../config/api.config';
 })
 export class ProfilePage {
 
-  cliente : |ClienteDTO;
+  cliente : ClienteDTO;
 
   constructor(
     public navCtrl: NavController, 
@@ -26,7 +26,7 @@ export class ProfilePage {
     if(localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email)
         .subscribe(response => {
-          this.cliente = response;
+          this.cliente = response as ClienteDTO;
           this.getImagemIfExists();
         }, error => {
           if(error.status == 403) {
